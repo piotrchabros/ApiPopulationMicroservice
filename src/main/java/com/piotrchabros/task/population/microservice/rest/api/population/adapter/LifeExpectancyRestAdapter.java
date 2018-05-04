@@ -1,5 +1,12 @@
 package com.piotrchabros.task.population.microservice.rest.api.population.adapter;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
+import java.util.Optional;
+
+/**
+ * life-expectancy : calculate life expectancy
+ */
 public interface LifeExpectancyRestAdapter {
 
     /**
@@ -8,28 +15,8 @@ public interface LifeExpectancyRestAdapter {
      * @param sex
      * @param country
      * @param dateOfBirth
-     * @return
+     * @return optional json response
      */
-    String getTotalLifeExpectancyURL(String sex, String country, String dateOfBirth);
-
-    /**
-     * Calculate remaining life expectancy of a person with given sex, country, and age at a given point in time.
-     * @param sex
-     * @param country
-     * @param date
-     * @param age
-     * @return
-     */
-    String getRemainingLifeExpectancyURL(String sex, String country, String date, String age);
-
-    /**
-     * Calculate diabetes life expectancy of a person with given sex, country, age and whether has diabetes or not.
-     * @param hasDiabetes
-     * @param sex
-     * @param country
-     * @param age
-     * @return
-     */
-    String gerRemainingLifeExpectancyWithDiabetesURL(String hasDiabetes, String sex, String country, String age);
+    Optional<JsonNode> getTotalLifeExpectancyBySexCountryDate(String sex, String country, String dateOfBirth);
 
 }

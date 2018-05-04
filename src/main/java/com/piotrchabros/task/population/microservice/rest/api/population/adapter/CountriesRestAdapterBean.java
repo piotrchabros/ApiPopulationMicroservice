@@ -7,29 +7,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.ws.rs.core.UriBuilder;
-import java.net.URI;
 import java.util.Optional;
 
 import static com.piotrchabros.task.population.microservice.rest.api.population.common.Constants.*;
 
+/**
+ * concrete implementation of the CountriesRestAdapter interface
+ */
 @Service
-public class PopulationRestAdapterBean implements PopulationRestAdapter {
+public class CountriesRestAdapterBean implements CountriesRestAdapter {
 
     public UriBuilder getBaseUri(){
-        return UriBuilder.fromPath(BASE_URL + POPULATION).scheme(BASE_HOST);
+        return UriBuilder.fromPath(BASE_URL + COUNTRIES).scheme(BASE_HOST);
     }
 
-    public URI getPopulationByCountryAndByDateUrlString(String country, String date) {
-        return getBaseUri()
-                .segment(COUNTRY_SEGMENT, DATE_SEGMENT)
-                .queryParam(FORMAT, FORMAT_JSON)
-                .build(country, date);
-    }
-
-    public Optional<JsonNode> getPopulationByCountryAndByDate(String country, String date) {
-        URI uri = getPopulationByCountryAndByDateUrlString(country, date);
+    public Optional<JsonNode> getCountries() {
+        String url = getBaseUri().queryParam(FORMAT, FORMAT_JSON).toTemplate();
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         return ResponseEntityJsonMapper.getOptionalJsonResponse(response);
     }
+
 }

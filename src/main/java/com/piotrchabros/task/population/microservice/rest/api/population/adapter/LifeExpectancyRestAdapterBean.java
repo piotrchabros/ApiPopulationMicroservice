@@ -13,23 +13,24 @@ import java.util.Optional;
 import static com.piotrchabros.task.population.microservice.rest.api.population.common.Constants.*;
 
 @Service
-public class PopulationRestAdapterBean implements PopulationRestAdapter {
+public class LifeExpectancyRestAdapterBean implements LifeExpectancyRestAdapter {
 
     public UriBuilder getBaseUri(){
-        return UriBuilder.fromPath(BASE_URL + POPULATION).scheme(BASE_HOST);
+        return UriBuilder.fromPath(BASE_URL + LIFE_EXPECTANCY).scheme(BASE_HOST);
     }
 
-    public URI getPopulationByCountryAndByDateUrlString(String country, String date) {
+    public URI getTotalLifeExpectancyBySexCountryDateUrlString(String sex, String country, String date){
         return getBaseUri()
-                .segment(COUNTRY_SEGMENT, DATE_SEGMENT)
+                .segment(TOTAL_SEGMENT, SEX_SEGMENT, COUNTRY_SEGMENT, DATE_SEGMENT)
                 .queryParam(FORMAT, FORMAT_JSON)
-                .build(country, date);
+                .build(TOTAL_SEGMENT_VALUE, sex, country, date);
     }
 
-    public Optional<JsonNode> getPopulationByCountryAndByDate(String country, String date) {
-        URI uri = getPopulationByCountryAndByDateUrlString(country, date);
+    public Optional<JsonNode> getTotalLifeExpectancyBySexCountryDate(String sex, String country, String date) {
+        URI uri = getTotalLifeExpectancyBySexCountryDateUrlString(sex, country, date);
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
         return ResponseEntityJsonMapper.getOptionalJsonResponse(response);
     }
+
 }
