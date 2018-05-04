@@ -26,7 +26,7 @@ public class MicroserviceRestController {
         if(response.isPresent()) {
             return response.get().toString();
         }
-        return "";
+        else return "";
     }
 
     @GetMapping("/population/{country}/{date}")
@@ -35,12 +35,16 @@ public class MicroserviceRestController {
         if(response.isPresent()) {
             return response.get().toString();
         }
-        return "";
+        else return "";
     }
 
     @GetMapping("/lifeExpectancy/{sex}/{country}/{date}")
     public String getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date){
-        return apiPopulationRestServiceFacadeBean.getTotalLifeExpectancyBySexCountryDate(sex, country, date).get().asText();
+        Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getTotalLifeExpectancyBySexCountryDate(sex, country, date);
+        if(response.isPresent()){
+            return response.get().toString();
+        }
+        else return "";
     }
 
 }
