@@ -71,4 +71,5 @@ You can also run this microservice by building this application into a jar file 
 ## Troubleshooting
 
 * Before running clean, test and install this application using maven
-* In case of any errors please contact me at piotrchabros@outlook.com
+* It happened to me once that a test failed due to ConnectionTimeoutException. This was caused by connection issues on the side of the external API. Please wait a few more seconds and re-run the test. 
+* In case of any other errors please contact me at piotrchabros@outlook.com
