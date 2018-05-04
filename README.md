@@ -1,10 +1,6 @@
 # Api.Population REST Microservice 
 
-**Table of Contents:**
-
-[TOCM]
-
-##About this application
+## About this application
 
 This is a small microservice that performs the following steps: 
 * fetches data from a public API,
@@ -13,16 +9,16 @@ This is a small microservice that performs the following steps:
 
 Used API: http://api.population.io
 
-####Fetched data:
+#### Fetched data:
 
 - population and life expectancy for three countries
 
-####Transforms/calculations: 
+#### Transforms/calculations: 
 
 - total population today per country
 - average life expectancy for persons born on 1952-01-01 per country
 
-####Used the following technologies:
+#### Used the following technologies:
 * Java 8
 * Latest stable version of Spring Boot (currently 2.0.1)
 * REST for the frontend API
