@@ -72,4 +72,5 @@ You can also run this microservice by building this application into a jar file 
 
 * Before running clean, test and install this application using maven
 * It happened to me once that a test failed due to ConnectionTimeoutException. This was caused by connection issues on the side of the external API. Please wait a few more seconds and re-run the test. 
+* If you encounter an error `org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]` this means there is something else already listening on the port 8080. Please change or release this port.
 * In case of any other errors please contact me at piotrchabros@outlook.com
