@@ -59,14 +59,14 @@ You can also run this microservice by building this application into a jar file 
 ## Possible further improvements
 
 ### Backend
-[ ] use some caching mechanism
-[ ] store and periodically update the data using scheduler, e.g. [quartz](http://www.quartz-scheduler.org/)
+* [ ] use some caching mechanism
+* [ ] store and periodically update the data using scheduler, e.g. [quartz](http://www.quartz-scheduler.org/)
 
 ### Frontend
-[ ] use webpack, eslint and other useful plugins and tools
-[ ] display datepickers for a freedom to pick various dates
-[ ] frontend as a separate microservice
-[ ] use different technology for the frontend. e.g Angular/React/ExtJS
+* [ ] use webpack, eslint and other useful plugins and tools
+* [ ] display datepickers for a freedom to pick various dates
+* [ ] frontend as a separate microservice
+* [ ] use different technology for the frontend. e.g Angular/React/ExtJS
 
 ## Troubleshooting
 
