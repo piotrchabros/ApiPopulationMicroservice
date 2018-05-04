@@ -30,7 +30,7 @@ Used API: [api.population.io](http://api.population.io)
  * Jersey
  * JUnit
  
-The implementation followed common coding practices and the code is documented as well as possible.
+The implementation followed common coding practices and the code is documented as well as possible. Some parts of the code which are not documented should be self-explanatory.
 
 #### GUI
 
