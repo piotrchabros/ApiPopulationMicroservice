@@ -33,3 +33,13 @@ Used API: http://api.population.io
  * H2
  
 The implementation followed common coding practices and the code is documented as well as possible.
+
+## Installation / Running instructions
+
+* You can run this application by cloning the repository and importing this project into the Java IDE of your choice.
+* After importing make sure that the project SDK is set up to at least Java 8.
+* Start the application by running com.piotrchabros.task.population.microservice.MicroserviceApplication.java.
+* Open web browser and navigate to http://localhost:8080
+* I recommend using IntelliJ for running the application it was set up in it.
+
+You can also run this microservice by building this application into a jar file using spring-boot-maven-plugin and run 
