@@ -26,6 +26,6 @@ public class LifeExpectancyRestAdapterBeanTest {
     @Test
     public void testGetTotalLifeExpectancyURL() {
         URI uri = lifeExpectancyRestAdapterBean.getTotalLifeExpectancyBySexCountryDateUrlString("male", "United Kingdom", "1952-01-01");
-        Assert.assertEquals("http://api.population.io:80/1.0/life-expectancy/total/male/United%20Kingdom/1952-01-01", uri.toString());
+        Assert.assertEquals("http://api.population.io:80/1.0/life-expectancy/total/male/United%20Kingdom/1952-01-01?format=json", uri.toString());
     }
 }

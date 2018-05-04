@@ -6,12 +6,7 @@ var selectRandomCountries = function(){
     $('#country5').val('Niger')
     $('#country6').val('Belgium')
 
-    $('#country1').trigger('change');
-    $('#country2').trigger('change');
-    $('#country3').trigger('change');
-    $('#country4').trigger('change');
-    $('#country5').trigger('change');
-    $('#country6').trigger('change');
+    $('select').trigger('change');
 }
 
 populateCountrySelectBox = function(selectBox, countries) {
@@ -22,13 +17,9 @@ populateCountrySelectBox = function(selectBox, countries) {
 
 $(document).ready(function() {
     getCountries(function(countries) {
-        populateCountrySelectBox($('#country1'), countries);
-        populateCountrySelectBox($('#country2'), countries);
-        populateCountrySelectBox($('#country3'), countries);
-        populateCountrySelectBox($('#country4'), countries);
-        populateCountrySelectBox($('#country5'), countries);
-        populateCountrySelectBox($('#country6'), countries);
-
+        $('select').each(function (){
+            populateCountrySelectBox($(this), countries);
+        });
         selectRandomCountries();
     });
 

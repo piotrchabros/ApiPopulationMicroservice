@@ -32,6 +32,6 @@ public class PopulationRestAdapterBeanTest {
     {
         date = LocalDate.now().toString();
         URI uri = populationRestAdapterBean.getPopulationByCountryAndByDateUrlString(country, date);
-        Assert.assertEquals("http://api.population.io:80/1.0/population/" + country + "/" + date, uri.toString());
+        Assert.assertEquals("http://api.population.io:80/1.0/population/" + country + "/" + date+"?format=json", uri.toString());
     }
 }
