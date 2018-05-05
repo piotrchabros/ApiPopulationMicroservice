@@ -1,12 +1,10 @@
 var selectRandomCountries = function(){
-    $('#country1').val('Finland');
-    $('#country2').val('Poland');
-    $('#country3').val('Germany');
-    $('#country4').val('Sierra Leone')
-    $('#country5').val('Niger')
-    $('#country6').val('Barbados')
-
-    $('select').trigger('change');
+    var options = document.getElementById('country1').options;
+    $('select').each(function (){
+        var randomIndex = Math.round(Math.random() * options.length);
+        $(this).val($(options[randomIndex])[0].value);
+        $(this).trigger('change');
+    });
 }
 
 populateCountrySelectBox = function(selectBox, countries) {
