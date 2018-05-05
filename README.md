@@ -43,9 +43,6 @@ Used API: [api.population.io](http://api.population.io)
 * After importing make sure that the project SDK is set up to at least Java 8.
 * Start the application by running com.piotrchabros.task.population.microservice.MicroserviceApplication.java.
 * Open web browser and navigate to http://localhost:8080
-* I recommend using IntelliJ for running the application it was set up in it.
-* You should see something like this in the console output: 
-* This means that he application started successfully and is accessible.
 
 You can also run this microservice by building this application into a jar file using spring-boot-maven-plugin and run it in external container e.g. Tomcat
 
@@ -65,6 +62,5 @@ You can also run this microservice by building this application into a jar file 
 ## Troubleshooting
 
 * Before running clean, test and install this application using maven
-* It happened to me once that a test failed due to ConnectionTimeoutException. This was caused by connection issues on the side of the external API. Please wait a few more seconds and re-run the test. 
 * If you encounter an error `org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]` this means there is something else already listening on the port 8080. Please change or release this port.
 * In case of any other errors please contact me at piotrchabros@outlook.com
