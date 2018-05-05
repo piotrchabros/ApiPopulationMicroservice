@@ -43,24 +43,24 @@ Used API: [api.population.io](http://api.population.io)
 
 The com.piotrchabros.task.microservice package is the root of the packages:
 
-config - contains global configuration for the application
+- config - contains global configuration for the application
 
 **the persistance layer is used together with a temporary h2 database. the persistance functionality using h2 is for demonstrational purposes only, because it can be quickly setup, out-of-the-box, without additional configuration, using in-memory data source. for production grade environment switching to another data source like mysql would be preferred**
 
-persistance - classes for handling the persistance layer of the application
-persitance.entiy - data models
-persistance.repository - implementation using data source 
-persistance.service - for interaction with the repository
+- persistance - classes for handling the persistance layer of the application
+- persitance.entiy - data models
+- persistance.repository - implementation using data source 
+- persistance.service - for interaction with the repository
  
-rest.api.population - contains classes related with the api.population rest api
-rest.api.population.adapter - contains classes and interface adapters between microservice and population api
-rest.api.population.common - contains classes with common functionalities used in the population package
-rest.api.population.utils - contains utility classes to reduce boilderplate code in the population package
-rest.api.population.facade - contains facade class which acts like an access/gateway to various adapters
+- rest.api.population - contains classes related with the api.population rest api
+- rest.api.population.adapter - contains classes and interface adapters between microservice and population api
+- rest.api.population.common - contains classes with common functionalities used in the population package
+- rest.api.population.utils - contains utility classes to reduce boilderplate code in the population package
+- rest.api.population.facade - contains facade class which acts like an access/gateway to various adapters
 
-rest.api.microservice - contains rest interfaces and classes of the front-end
-rest.api.microservice.controller - controllers of the microservice
-rest.api.microservice.controller.advice - configuration of the controllers using advice, exception handling 
+- rest.api.microservice - contains rest interfaces and classes of the front-end
+- rest.api.microservice.controller - controllers of the microservice
+- rest.api.microservice.controller.advice - configuration of the controllers using advice, exception handling 
 
 
 
