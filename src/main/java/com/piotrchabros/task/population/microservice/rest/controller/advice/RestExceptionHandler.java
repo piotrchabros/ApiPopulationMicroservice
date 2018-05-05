@@ -1,4 +1,4 @@
-package com.piotrchabros.task.population.microservice.rest.config;
+package com.piotrchabros.task.population.microservice.rest.controller.advice;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -4,7 +4,7 @@ var selectRandomCountries = function(){
     $('#country3').val('Germany');
     $('#country4').val('Sierra Leone')
     $('#country5').val('Niger')
-    $('#country6').val('Belgium')
+    $('#country6').val('Barbados')
 
     $('select').trigger('change');
 }

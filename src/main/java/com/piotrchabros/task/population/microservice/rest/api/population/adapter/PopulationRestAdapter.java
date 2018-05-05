@@ -4,6 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.Optional;
 
+/**
+ * population : retrieve population tables
+ * Provides an interface for communicating with the api.population
+ */
 public interface PopulationRestAdapter {
 
     /**

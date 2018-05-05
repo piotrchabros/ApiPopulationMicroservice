@@ -23,7 +23,7 @@ public class PopulationRestAdapterBeanTest {
 
     @Test
     public void testGetBaseUri(){
-        UriBuilder uri = populationRestAdapterBean.getBaseUri();
+        UriBuilder uri = populationRestAdapterBean.getBaseUriBuilder();
         Assert.assertEquals("http://api.population.io:80/1.0/population", uri.toTemplate());
     }
 
@@ -31,7 +31,7 @@ public class PopulationRestAdapterBeanTest {
     public void testGetPopulationByCountryTodayURL()
     {
         date = LocalDate.now().toString();
-        URI uri = populationRestAdapterBean.getPopulationByCountryAndByDateUrlString(country, date);
+        URI uri = populationRestAdapterBean.getPopulationByCountryAndByDateUri(country, date);
         Assert.assertEquals("http://api.population.io:80/1.0/population/" + country + "/" + date+"?format=json", uri.toString());
     }
 }

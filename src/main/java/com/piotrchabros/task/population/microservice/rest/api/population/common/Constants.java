@@ -1,5 +1,8 @@
 package com.piotrchabros.task.population.microservice.rest.api.population.common;
 
+/**
+ * These are constant variables that are required to build requests and fetch data
+ */
 public class Constants {
 
     public static final String BASE_HOST = "http";

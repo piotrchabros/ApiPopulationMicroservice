@@ -5,7 +5,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.util.Optional;
 
 /**
- *  countries : list available countries
+ * countries : list available countries
+ * Provides an interface for communicating with the api.population
  */
 public interface CountriesRestAdapter {
 

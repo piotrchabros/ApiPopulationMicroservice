@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-
+/**
+ * Implementation bundling together various adapters for the api.population
+ */
 @Service
 public class ApiPopulationRestServiceFacadeBean implements ApiPopulationRestServiceFacade {
 
@@ -22,15 +24,15 @@ public class ApiPopulationRestServiceFacadeBean implements ApiPopulationRestServ
     @Autowired
     CountriesRestAdapterBean countriesRestAdapterBean;
 
-    public Optional<JsonNode> getPopulationByCountryAndByDate(String country, String date) {
+    public Optional<JsonNode> getPopulationByCountryAndByDateOptionalJsonNode(String country, String date) {
         return populationRestServiceAdapterBean.getPopulationByCountryAndByDate(country, date);
     }
 
-    public Optional<JsonNode> getTotalLifeExpectancyBySexCountryDate(String sex, String country, String date){
+    public Optional<JsonNode> getTotalLifeExpectancyBySexCountryDateOptionalJsonNode(String sex, String country, String date){
         return lifeExpectancyRestServiceAdapterBean.getTotalLifeExpectancyBySexCountryDate(sex, country, date);
     }
 
-    public Optional<JsonNode> getCountries(){
+    public Optional<JsonNode> getCountriesOptionalJsonNode(){
         return countriesRestAdapterBean.getCountries();
     }
 

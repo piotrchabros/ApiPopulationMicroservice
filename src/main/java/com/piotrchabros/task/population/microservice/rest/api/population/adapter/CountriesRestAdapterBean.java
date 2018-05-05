@@ -7,12 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.ws.rs.core.UriBuilder;
+import java.net.URI;
 import java.util.Optional;
 
 import static com.piotrchabros.task.population.microservice.rest.api.population.common.Constants.*;
 
 /**
- * concrete implementation of the CountriesRestAdapter interface
+ * Adapter class implementation for retrieving the countries data from api.population
+ * Each adapter has a different base uri format that can be adapted accordingly to needs
  */
 @Service
 public class CountriesRestAdapterBean implements CountriesRestAdapter {
@@ -21,11 +23,13 @@ public class CountriesRestAdapterBean implements CountriesRestAdapter {
         return UriBuilder.fromPath(BASE_URL + COUNTRIES).scheme(BASE_HOST);
     }
 
+    public URI getCountriesUri(){
+        return getBaseUri().queryParam(FORMAT, FORMAT_JSON).build();
+    }
+
     public Optional<JsonNode> getCountries() {
-        String url = getBaseUri().queryParam(FORMAT, FORMAT_JSON).toTemplate();
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        return ResponseEntityJsonMapper.getOptionalJsonResponse(response);
+        URI uri = getCountriesUri();
+        return ResponseEntityJsonMapper.getOptionalJsonResponse(uri, String.class);
     }
 
 }

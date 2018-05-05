@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 /**
- * This controller is used for implementing endpoints for the microservice front-end layer
+ * This controller is an implementation of the backend endpoints of the microservice
  */
 @RestController
 @RequestMapping("/ajax")
-public class MicroserviceRestController {
+public class MicroserviceRestController implements MicroserviceRestControllerApi {
 
     @Autowired
     ApiPopulationRestServiceFacadeBean apiPopulationRestServiceFacadeBean;
 
     @GetMapping("/countries")
     public String getCountries(){
-        Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getCountries();
+        Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getCountriesOptionalJsonNode();
         if(response.isPresent()) {
             return response.get().toString();
         }
@@ -30,8 +30,8 @@ public class MicroserviceRestController {
     }
 
     @GetMapping("/population/{country}/{date}")
-    public String getLifeExpectancy(@PathVariable String country, @PathVariable String date){
-        Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getPopulationByCountryAndByDate(country, date);
+    public String getPopulation(@PathVariable String country, @PathVariable String date){
+        Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getPopulationByCountryAndByDateOptionalJsonNode(country, date);
         if(response.isPresent()) {
             return response.get().toString();
         }
@@ -40,7 +40,7 @@ public class MicroserviceRestController {
 
     @GetMapping("/lifeExpectancy/{sex}/{country}/{date}")
     public String getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date){
-        Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getTotalLifeExpectancyBySexCountryDate(sex, country, date);
+        Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getTotalLifeExpectancyBySexCountryDateOptionalJsonNode(sex, country, date);
         if(response.isPresent()){
             return response.get().toString();
         }

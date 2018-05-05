@@ -28,21 +28,21 @@ public class ApiPopulationRestServiceFacadeBeanTest {
 
     @Test
     public void testGetTotalLifeExpentancyPerCountry(){
-        Optional<JsonNode> result = populationRestServiceFacadeBean.getTotalLifeExpectancyBySexCountryDate(sex, country, dateNow);
+        Optional<JsonNode> result = populationRestServiceFacadeBean.getTotalLifeExpectancyBySexCountryDateOptionalJsonNode(sex, country, dateNow);
         Assert.assertTrue(result.isPresent());
     }
 
     @Test
     public void testGetPopulationByCountryToday()
     {
-        Optional<JsonNode> result = populationRestServiceFacadeBean.getPopulationByCountryAndByDate(country, dateNow);
+        Optional<JsonNode> result = populationRestServiceFacadeBean.getPopulationByCountryAndByDateOptionalJsonNode(country, dateNow);
         Assert.assertTrue(result.isPresent());
     }
 
     @Test
     public void testGetCountries()
     {
-        Optional<JsonNode> result = populationRestServiceFacadeBean.getCountries();
+        Optional<JsonNode> result = populationRestServiceFacadeBean.getCountriesOptionalJsonNode();
         Assert.assertTrue(result.isPresent());
     }
 }

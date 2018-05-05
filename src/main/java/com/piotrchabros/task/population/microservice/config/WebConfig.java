@@ -5,6 +5,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * This is basic configuration implementation for the web mvc spring module
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 /**
  * life-expectancy : calculate life expectancy
+ * Provides an interface for communicating with the api.population
  */
 public interface LifeExpectancyRestAdapter {
 
