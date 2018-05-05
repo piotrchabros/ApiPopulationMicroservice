@@ -1,12 +1,13 @@
 package com.piotrchabros.task.population.microservice.rest.api.microservice;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.piotrchabros.task.population.microservice.persistence.entity.LifeExpectancy;
+import com.piotrchabros.task.population.microservice.persistence.entity.Population;
+import com.piotrchabros.task.population.microservice.persistence.service.LifeExpectancyService;
+import com.piotrchabros.task.population.microservice.persistence.service.PopulationService;
 import com.piotrchabros.task.population.microservice.rest.api.population.facade.ApiPopulationRestServiceFacadeBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -20,6 +21,16 @@ public class MicroserviceRestController implements MicroserviceRestControllerApi
     @Autowired
     ApiPopulationRestServiceFacadeBean apiPopulationRestServiceFacadeBean;
 
+    @Autowired
+    PopulationService populationService;
+
+    @Autowired
+    LifeExpectancyService lifeExpectancyService;
+
+    /**
+     * retrieves a list of countries directly from api.population
+     * @return countries or empty string
+     */
     @GetMapping("/countries")
     public String getCountries(){
         Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getCountriesOptionalJsonNode();
@@ -29,22 +40,52 @@ public class MicroserviceRestController implements MicroserviceRestControllerApi
         else return "";
     }
 
+    /**
+     * retrieves population for the given parameters
+     * first, checks for the matching population in the database, if not found fetches using rest
+     * @param country
+     * @param date
+     * @return population or null
+     */
     @GetMapping("/population/{country}/{date}")
-    public String getPopulation(@PathVariable String country, @PathVariable String date){
+    @ResponseBody
+    public Population getPopulation(@PathVariable String country, @PathVariable String date){
+
+        Optional<Population> optionalPopulation = populationService.findPopulation(country, date);
+        if(optionalPopulation.isPresent()) {
+            return optionalPopulation.get();
+        }
+
         Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getPopulationByCountryAndByDateOptionalJsonNode(country, date);
         if(response.isPresent()) {
-            return response.get().toString();
+            return populationService.addPopulation(country, date, response.get().get("total_population").get("population").intValue());
         }
-        else return "";
+
+        return null;
     }
 
+    /**
+     * retrieves life expectancy for the given parameters
+     * if not found in the database, retrieves using the api.population rest endpoint
+     * @param sex
+     * @param country
+     * @param date
+     * @return life expectancy or null
+     */
     @GetMapping("/lifeExpectancy/{sex}/{country}/{date}")
-    public String getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date){
+    @ResponseBody
+    public LifeExpectancy getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date){
+        Optional<LifeExpectancy> optionalLifeExpectancy = lifeExpectancyService.findLifeExpectancy(sex, country, date);
+        if(optionalLifeExpectancy.isPresent()){
+            return optionalLifeExpectancy.get();
+        }
+
         Optional<JsonNode> response = apiPopulationRestServiceFacadeBean.getTotalLifeExpectancyBySexCountryDateOptionalJsonNode(sex, country, date);
         if(response.isPresent()){
-            return response.get().toString();
+            return lifeExpectancyService.addLifeExpectancy(sex, country, date, response.get().get("total_life_expectancy").floatValue());
         }
-        else return "";
+
+        return null;
     }
 
 }

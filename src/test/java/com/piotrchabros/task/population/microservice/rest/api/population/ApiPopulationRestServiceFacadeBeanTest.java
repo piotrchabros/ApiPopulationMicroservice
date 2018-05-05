@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import static com.piotrchabros.task.population.microservice.rest.api.population.common.Constants.SEX_SEGMENT_FEMALE;
+import static com.piotrchabros.task.population.microservice.rest.api.population.common.ApiPopulationConstants.SEX_SEGMENT_FEMALE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

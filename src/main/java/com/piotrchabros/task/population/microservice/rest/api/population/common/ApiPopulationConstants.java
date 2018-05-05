@@ -3,7 +3,7 @@ package com.piotrchabros.task.population.microservice.rest.api.population.common
 /**
  * These are constant variables that are required to build requests and fetch data
  */
-public class Constants {
+public class ApiPopulationConstants {
 
     public static final String BASE_HOST = "http";
     public final static String BASE_URL =  "//api.population.io:80/1.0/";

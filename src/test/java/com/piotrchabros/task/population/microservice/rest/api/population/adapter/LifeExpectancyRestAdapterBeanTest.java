@@ -12,7 +12,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.util.Optional;
 
-import static com.piotrchabros.task.population.microservice.rest.api.population.common.Constants.SEX_SEGMENT_MALE;
+import static com.piotrchabros.task.population.microservice.rest.api.population.common.ApiPopulationConstants.SEX_SEGMENT_MALE;
 
 /**
  * Test of the life expectancy endpoints of the api.population

@@ -8,11 +8,11 @@ import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.util.Optional;
 
-import static com.piotrchabros.task.population.microservice.rest.api.population.common.Constants.*;
+import static com.piotrchabros.task.population.microservice.rest.api.population.common.ApiPopulationConstants.*;
 
 /**
  * Adapter class implementation for retrieving the life expectancy data from api.population
- * Each adapter has a different base uri format that can be adapted accordingly to needs
+ * Each adapter has a different uri format that can be adapted accordingly to the api.population
  */
 @Service
 public class LifeExpectancyRestAdapterBean implements LifeExpectancyRestAdapter {

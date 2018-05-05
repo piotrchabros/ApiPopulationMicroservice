@@ -14,12 +14,12 @@ var setLifeExpectancyChartData = function (index, data)
 {
     if(data.sex == SEX_MALE)
     {
-        lifeExpectancyChartDataMale.y[index] = data.total_life_expectancy;
+        lifeExpectancyChartDataMale.y[index] = data.lifeExpectancy;
         lifeExpectancyChartDataMale.x[index] = data.country;
     }
     else if(data.sex == SEX_FEMALE)
     {
-        lifeExpectancyChartDataFemale.y[index] = data.total_life_expectancy;
+        lifeExpectancyChartDataFemale.y[index] = data.lifeExpectancy;
         lifeExpectancyChartDataFemale.x[index] = data.country;
     }
     plotLifeExpectancyChart();

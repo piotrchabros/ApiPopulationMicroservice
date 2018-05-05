@@ -1,5 +1,7 @@
 package com.piotrchabros.task.population.microservice.rest.api.microservice;
 
+import com.piotrchabros.task.population.microservice.persistence.entity.LifeExpectancy;
+import com.piotrchabros.task.population.microservice.persistence.entity.Population;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
@@ -19,7 +21,7 @@ public interface MicroserviceRestControllerApi {
      * @param date
      * @return string representation of a json response object
      */
-    String getPopulation(@PathVariable String country, @PathVariable String date);
+    Population getPopulation(@PathVariable String country, @PathVariable String date);
 
     /**
      * a method returning a life expectancy for the given parameters
@@ -28,5 +30,5 @@ public interface MicroserviceRestControllerApi {
      * @param date
      * @return string representation of a json response object
      */
-    String getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date);
+    LifeExpectancy getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date);
 }

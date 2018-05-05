@@ -2,19 +2,17 @@ package com.piotrchabros.task.population.microservice.rest.api.population.adapte
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.piotrchabros.task.population.microservice.rest.api.population.utils.ResponseEntityJsonMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.util.Optional;
 
-import static com.piotrchabros.task.population.microservice.rest.api.population.common.Constants.*;
+import static com.piotrchabros.task.population.microservice.rest.api.population.common.ApiPopulationConstants.*;
 
 /**
  * Adapter class implementation for retrieving the countries data from api.population
- * Each adapter has a different base uri format that can be adapted accordingly to needs
+ * Each adapter has a different uri format that can be adapted accordingly to the api.population
  */
 @Service
 public class CountriesRestAdapterBean implements CountriesRestAdapter {
