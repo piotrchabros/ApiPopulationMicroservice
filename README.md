@@ -40,7 +40,22 @@ Used API: [api.population.io](http://api.population.io)
 - plain Javascript
 - PlotlyJs for the data visualization
 
-## Installation / Running instructions
+## Additional information
+
+The com.piotrchabros.task.microservice package is the root of the packages:
+* config - contains global configuration for the application
+* rest.api.population - contains classes related with the api.population rest api
+* rest.api.population.adapter - contains classes and interface adapters between microservice and population api
+* rest.api.population.common - contains classes with common functionalities used in the population package
+* rest.api.population.utils - contains utility classes to reduce boilderplate code in the population package
+* rest.api.population.facade - contains facade class which acts like an access/gateway to various adapters
+* rest.api.microservice - contains rest interfaces and classes of the front-end
+* rest.api.microservice.controller - controllers of the microservice
+* rest.api.microservice.controller.advice - configuration of the controllers using advice, exception handling 
+
+Logging is divided between standard output and a log file (microservice_debug.log), where only errors are printed to the console, and info-level messages go to the file. 
+
+## Installation/running instructions
 
 * You can run this application by cloning the repository and importing this project into the Java IDE of your choice.
 * After importing make sure that the project SDK is set up to at least Java 8.
