@@ -23,7 +23,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = { HttpClientErrorException.class, HttpServerErrorException.class })
     protected ResponseEntity<Object> handleError(RuntimeException ex, WebRequest request) {
-        String bodyOfResponse = "Invalid data supplied!";
+        String bodyOfResponse = "Invalid request parameters!";
         return handleExceptionInternal(ex, bodyOfResponse,
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }

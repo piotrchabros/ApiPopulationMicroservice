@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * This class is implementing methods for parsing the response from and into the desired format
- * This class may be easily extended to parse from and to different formats e.g. POJOs
+ * It can be easily extended to parse from and to different formats e.g. POJOs
  */
 public class ResponseEntityJsonMapper {
 
