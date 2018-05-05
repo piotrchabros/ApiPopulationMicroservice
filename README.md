@@ -43,17 +43,27 @@ Used API: [api.population.io](http://api.population.io)
 ## Additional information
 
 The com.piotrchabros.task.microservice package is the root of the packages:
-* config - contains global configuration for the application
-* rest.api.population - contains classes related with the api.population rest api
-* rest.api.population.adapter - contains classes and interface adapters between microservice and population api
-* rest.api.population.common - contains classes with common functionalities used in the population package
-* rest.api.population.utils - contains utility classes to reduce boilderplate code in the population package
-* rest.api.population.facade - contains facade class which acts like an access/gateway to various adapters
-* rest.api.microservice - contains rest interfaces and classes of the front-end
-* rest.api.microservice.controller - controllers of the microservice
-* rest.api.microservice.controller.advice - configuration of the controllers using advice, exception handling 
 
-Logging is divided between standard output and a log file (microservice_debug.log), where only errors are printed to the console, and info-level messages go to the file. 
+config - contains global configuration for the application
+
+**the persistance layer is used together with a temporary h2 database. the persistance functionality using h2 is for demonstrational purposes only, because it can be quickly setup, out-of-the-box, without additional configuration, using in-memory data source. for production grade environment switching to another data source like mysql would be preferred**
+
+persistance - classes for handling the persistance layer of the application
+persitance.entiy - data models
+persistance.repository - implementation using data source 
+persistance.service - for interaction with the repository
+ 
+rest.api.population - contains classes related with the api.population rest api
+rest.api.population.adapter - contains classes and interface adapters between microservice and population api
+rest.api.population.common - contains classes with common functionalities used in the population package
+rest.api.population.utils - contains utility classes to reduce boilderplate code in the population package
+rest.api.population.facade - contains facade class which acts like an access/gateway to various adapters
+
+rest.api.microservice - contains rest interfaces and classes of the front-end
+rest.api.microservice.controller - controllers of the microservice
+rest.api.microservice.controller.advice - configuration of the controllers using advice, exception handling 
+
+
 
 ## Installation/running instructions
 
@@ -67,9 +77,12 @@ You can also run this microservice by building this application into a jar file 
 ## Possible additional improvements
 
 ### Cache
-* caching mechanism would useful in improving performance of retrieving the data, if population API would cause any issues
-* cache could be implemented on the front-end, as well as on the back-end
-* could also store and periodically update the data in the backend using scheduler, e.g. [quartz](http://www.quartz-scheduler.org/)
+* in case of massive amounts of users, it could be useful to introduce caching mechanisms in order to improve performance of retrieving the data
+* the cache service layer could be implemented on the front-end, as well as on the back-end
+
+### Countries synchronization between the microservice and api.population
+* to face potential situation of changes in the api.population country list, the microservice could also store and periodically update countries using scheduler like [quartz](http://www.quartz-scheduler.org/)
+
 
 ### Frontend
 * use webpack, eslint and other useful plugins and tools
