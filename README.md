@@ -94,4 +94,6 @@ You can also run this microservice by building this application into a jar file 
 
 * Before running clean, test and install this application using maven
 * If you encounter an error `org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]` this means there is something else already listening on the port 8080. Please change or release this port.
-* In case of any other errors please contact me at piotrchabros@outlook.com
+* Missing data - for some of the countries delivered by api.population there is no data available.
+
+In case of any other feedback please contact me directly
