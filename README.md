@@ -37,6 +37,11 @@ Used API: [api.population.io](http://api.population.io)
 - plain Javascript
 - PlotlyJs for the data visualization
 
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/29580834/39666092-51f4d33a-509e-11e8-8a2b-c44b12aa998a.png)
+![image](https://user-images.githubusercontent.com/29580834/39666095-5b057f92-509e-11e8-9c36-2eb01ad394ba.png)
+
 ## Installation / Running instructions
 
 * You can run this application by cloning the repository and importing this project into the Java IDE of your choice.
