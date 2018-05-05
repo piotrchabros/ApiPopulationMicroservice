@@ -28,18 +28,17 @@ Used API: [api.population.io](http://api.population.io)
 * Maven
 
 ###### Additional Java frameworks and libraries used to implement the microservice:
- * Thymeleaf
- * JodaTime
- * Jackson
- * JUnit
+ * [Thymeleaf](https://www.thymeleaf.org/)
+ * [JodaTime](http://www.joda.org/joda-time/)
+ * [Jackson](http://camel.apache.org/jackson-xml.html)
+ * [JUnit](https://junit.org/junit5/)
+ * [H2](http://www.h2database.com/html/main.html)
 
 #### GUI
 
-- Css (bootstrap)
-- jQuery (ajax mostly)
-- plain Javascript
-- PlotlyJs for the data visualization
-
+- [Bootstrap](https://getbootstrap.com/docs/3.3/css/)
+- [jQuery](http://jquery.com/)
+- [PlotlyJs](https://plot.ly/javascript/)
 ## Additional information
 
 The com.piotrchabros.task.microservice package is the root of the packages:
