@@ -5,7 +5,7 @@
 
 ## About this application
 
-This is a lightweight microservice that performs the following steps: 
+This is a stateless microservice that performs the following steps: 
 * fetches data from a public API,
 * transforms the data and presents it in a user-friendly form,
 * presents the data in a single page application.
