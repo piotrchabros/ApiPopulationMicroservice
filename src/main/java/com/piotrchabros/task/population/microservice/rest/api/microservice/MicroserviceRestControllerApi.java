@@ -1,5 +1,6 @@
 package com.piotrchabros.task.population.microservice.rest.api.microservice;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
@@ -11,7 +12,7 @@ public interface MicroserviceRestControllerApi {
      * a method returning a list of all countries
      * @return string representation of a json response object
      */
-    String getCountries();
+    JsonNode getCountries();
 
     /**
      * a method returning a population for the given parameters
@@ -19,7 +20,7 @@ public interface MicroserviceRestControllerApi {
      * @param date
      * @return string representation of a json response object
      */
-    String getPopulation(@PathVariable String country, @PathVariable String date);
+    JsonNode getPopulation(@PathVariable String country, @PathVariable String date);
 
     /**
      * a method returning a life expectancy for the given parameters
@@ -28,5 +29,5 @@ public interface MicroserviceRestControllerApi {
      * @param date
      * @return string representation of a json response object
      */
-    String getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date);
+    JsonNode getLifeExpectancy(@PathVariable String sex, @PathVariable String country, @PathVariable String date);
 }
